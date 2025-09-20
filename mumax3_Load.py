@@ -25,7 +25,10 @@ class DataLoad():
         StartNum = 0
         for name, Dnum in BasisParameter:
             EndNum = StartNum+Dnum
-            dataDict[name] = data[:,(StartNum):(EndNum)]
+            if name=="Bext":
+                dataDict[name] = np.round(data[:,(StartNum):(EndNum)], Border)
+            else:
+                dataDict[name] = data[:,(StartNum):(EndNum)]
             StartNum = EndNum
 
         for name, Dnum in FurthParameter:
@@ -111,13 +114,14 @@ class DataLoad():
                 Car_r_array = np.append(Car_r_array, r)
                 theta_array = np.append(theta_array, theta)
                 phi_array   = np.append(phi_array, phi)
-
-            Car_r_array = Car_r_array.reshape(len(Car_r_array)//3, 3)
+            # print(len(Car_r_array))
+            # print(len(theta_array))
+            # Car_r_array = Car_r_array.reshape(len(Car_r_array)//3, 3)
             BextDict[str(Barray[BextInd])] = {'Car_r': Car_r_array,
                                               'theta': theta_array, 
                                               'phi': phi_array}
-            self.BextDict = BextDict
-            
+        
+        self.BextDict = BextDict
         return BextDict
             
 

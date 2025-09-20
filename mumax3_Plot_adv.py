@@ -281,8 +281,8 @@ class DataPlot_ama():
                 arrow_parts = []
                 Xc, Yc, Zc = cyl
                 Xcone, Ycone, Zcone = cone
-                arrow_parts.append(ax.plot_surface(Xc, Yc, Zc, color="r", alpha=0.8))
-                arrow_parts.append(ax.plot_surface(Xcone, Ycone, Zcone, color="r", alpha=0.8))
+                arrow_parts.append(ax.plot_surface(Xc, Yc, Zc, color=color, alpha=0.8))
+                arrow_parts.append(ax.plot_surface(Xcone, Ycone, Zcone, color=color, alpha=0.8))
 
                 def run(fram_ind):
                     # 刪掉舊箭頭
@@ -306,8 +306,8 @@ class DataPlot_ama():
                     Xcone, Ycone, Zcone = transform_mesh(*cone, R)
 
                     # 畫新的箭頭
-                    arrow_parts.append(ax.plot_surface(Xc, Yc, Zc, color="r", alpha=0.8))
-                    arrow_parts.append(ax.plot_surface(Xcone, Ycone, Zcone, color="r", alpha=0.8))
+                    arrow_parts.append(ax.plot_surface(Xc, Yc, Zc, color=color, alpha=0.8))
+                    arrow_parts.append(ax.plot_surface(Xcone, Ycone, Zcone, color=color, alpha=0.8))
 
                     return arrow_parts
             case _:

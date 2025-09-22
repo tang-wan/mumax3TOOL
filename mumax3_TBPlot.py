@@ -23,7 +23,6 @@ class TB_DataPlot():
         # ===== Data Load =====
         Rdata = self.Rdata
         # ===== Basis Plot =====
-        plt.figure()
         ax = plt.subplot(plotpos)
         ax.plot(xinput, Rdata, 
                 color=line[0], alpha=line[1], linewidth=line[2], label=line[3],
